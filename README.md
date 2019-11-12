@@ -4,7 +4,7 @@ Repository to help getting started with MongoDB Go driver connecting to MongoDB 
 
 ## Information
 
-This Quickstart project uses [MongoDB Go driver](https://godoc.org/go.mongodb.org/mongo-driver/mongo) version 1.1.2 by default. Although you can change the driver version, the provided code example was only tested against the default version of MongoDB driver. There is no guarantee that the code sample will work for all possible versions of the driver.
+This Quickstart project uses [MongoDB Go driver](https://godoc.org/go.mongodb.org/mongo-driver/mongo) version 1.1.3 by default. Although you can change the driver version, the provided code example was only tested against the default version of MongoDB driver. There is no guarantee that the code sample will work for all possible versions of the driver.
 
 ## Pre-requisites 
 
