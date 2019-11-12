@@ -39,7 +39,7 @@ In order to execute the code example, you need to specify `MONGODB_URI` environm
 
 ## Execution Steps
 
-1. Run the compiled C# code example by following below steps:
+1. Run the compiled Go code example by following below steps:
    * `cd ~/go`
    * `go build -v -o quickstart`
    * `./quickstart`

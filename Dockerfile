@@ -20,9 +20,9 @@ RUN export uid=1000 gid=1000 && \
     chown ${uid}:${gid} -R /home/ubuntu
 
 ENV HOME /home/ubuntu
-ENV GOROOT="/usr/local/go"
-ENV GOPATH=${HOME}
-ENV PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
+ENV GOROOT "/usr/local/go"
+ENV GOPATH ${HOME}
+ENV PATH "$PATH:$GOPATH/bin:$GOROOT/bin"
 
 WORKDIR ${HOME}
 
@@ -31,7 +31,7 @@ RUN wget --quiet https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz \
 && mv go /usr/local
 
 ENV DRIVER_VERSION ${DRIVER_VERSION}
-ENV MONGODB_URI=${MONGODB_URI}
+ENV MONGODB_URI ${MONGODB_URI}
 
 RUN mkdir -p ${HOME}/go
 COPY ./go/quickstart.go ${HOME}/go/quickstart.go
