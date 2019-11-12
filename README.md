@@ -60,6 +60,11 @@ From within the docker environment, you can also change the `MONGODB_URI` by cha
 export MONGODB_URI="mongodb+srv://usr:pwd@new.mongodb.net/dbname?retryWrites=true"
 ```
 
+## Tutorials
 
-## Related information
+* [Quickstart Golang and MongoDB: Starting and Setup](https://www.mongodb.com/blog/post/quick-start-golang--mongodb--starting-and-setup)
 
+
+## About 
+
+This project is part of the MongoDB Quickstart code examples. Please see [quickstart-readme](https://github.com/mongodb-developer/quickstart-readme) for more information. 
