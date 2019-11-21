@@ -31,7 +31,7 @@ func main() {
 	}
 	defer client.Disconnect(ctx)
 
-	database := client.Database("quickstart")
+	database := client.Database("getstarted")
 	collection := database.Collection("golang")
 
 	fmt.Println("Dropping collection 'golang' (command)")

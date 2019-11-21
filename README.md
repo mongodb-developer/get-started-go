@@ -1,10 +1,10 @@
-# Quickstart Go
+# Get-Started Go
 
 Repository to help getting started with MongoDB Go driver connecting to MongoDB Atlas.
 
 ## Information
 
-This Quickstart project uses [MongoDB Go driver](https://godoc.org/go.mongodb.org/mongo-driver/mongo) version 1.1.3 by default. Although you can change the driver version, the provided code example was only tested against the default version of MongoDB driver. There is no guarantee that the code sample will work for all possible versions of the driver.
+This Get-Started project uses [MongoDB Go driver](https://godoc.org/go.mongodb.org/mongo-driver/mongo) version 1.1.3 by default. Although you can change the driver version, the provided code example was only tested against the default version of MongoDB driver. There is no guarantee that the code sample will work for all possible versions of the driver.
 
 ## Pre-requisites 
 
@@ -41,8 +41,8 @@ In order to execute the code example, you need to specify `MONGODB_URI` environm
 
 1. Run the compiled Go code example by following below steps:
    * `cd ~/go`
-   * `go build -v -o quickstart`
-   * `./quickstart`
+   * `go build -v -o getstarted`
+   * `./getstarted`
 
 ### Change driver version from within the Docker environment
 
@@ -51,7 +51,7 @@ For running the code example in a different driver version from the one built on
 1. Change the driver version within the project file [go.mod](go/go.mod)
 2. Re-build the sample code:
    ```
-   go build -v -o quickstart
+   go build -v -o getstarted
    ```
 
 From within the docker environment, you can also change the `MONGODB_URI` by changing the environment variable: 
@@ -67,4 +67,4 @@ export MONGODB_URI="mongodb+srv://usr:pwd@new.mongodb.net/dbname?retryWrites=tru
 
 ## About 
 
-This project is part of the MongoDB Quickstart code examples. Please see [quickstart-readme](https://github.com/mongodb-developer/quickstart-readme) for more information. 
+This project is part of the MongoDB Get-Started code examples. Please see [get-started-readme](https://github.com/mongodb-developer/get-started-readme) for more information. 

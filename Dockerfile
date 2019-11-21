@@ -35,7 +35,7 @@ ENV DRIVER_VERSION ${DRIVER_VERSION}
 ENV MONGODB_URI ${MONGODB_URI}
 
 RUN mkdir -p ${HOME}/go
-COPY ./go/quickstart.go ${HOME}/go/quickstart.go
+COPY ./go/getstarted.go ${HOME}/go/getstarted.go
 COPY ./go/go.mod ${HOME}/go/go.mod
 
 RUN sed -i "s/x.x.x/${DRIVER_VERSION}/g" ${HOME}/go/go.mod
