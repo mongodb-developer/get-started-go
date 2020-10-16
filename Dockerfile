@@ -1,6 +1,6 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
-ARG DRIVER_VERSION=1.2.0
+ARG DRIVER_VERSION=1.4.2
 ARG MONGODB_URI
 
 RUN apt-get update && apt-get install -y \
@@ -27,8 +27,8 @@ ENV PATH "$PATH:$GOPATH/bin:$GOROOT/bin"
 
 WORKDIR ${HOME}
 
-RUN wget --quiet https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz \
-&& tar -xf go1.13.3.linux-amd64.tar.gz \
+RUN wget --quiet https://dl.google.com/go/go1.15.3.linux-amd64.tar.gz \
+&& tar -xf go1.15.3.linux-amd64.tar.gz \
 && mv go /usr/local
 
 ENV DRIVER_VERSION ${DRIVER_VERSION}

@@ -4,7 +4,7 @@ Repository to help getting started with MongoDB Go driver connecting to MongoDB 
 
 ## Information
 
-This Get-Started project uses [MongoDB Go driver](https://godoc.org/go.mongodb.org/mongo-driver/mongo) version 1.2.0 by default. Although you can change the driver version, the provided code example was only tested against the default version of MongoDB driver. There is no guarantee that the code sample will work for all possible versions of the driver.
+This Get-Started project uses [MongoDB Go driver](https://godoc.org/go.mongodb.org/mongo-driver/mongo) version 1.4.2 by default. Although you can change the driver version, the provided code example was only tested against the default version of MongoDB driver. There is no guarantee that the code sample will work for all possible versions of the driver.
 
 ## Pre-requisites 
 
@@ -25,7 +25,7 @@ In order to execute the code example, you need to specify `MONGODB_URI` environm
       ```
    * To use a different driver version and specify `MONGODB_URI`. For example:
       ```
-      docker build . -t start-go --build-arg DRIVER_VERSION=1.1.3 --build-arg MONGODB_URI="mongodb+srv://usr:pwd@example.mongodb.net/dbname?retryWrites=true"
+      docker build . -t start-go --build-arg DRIVER_VERSION=1.2.0 --build-arg MONGODB_URI="mongodb+srv://usr:pwd@example.mongodb.net/dbname?retryWrites=true"
       ```
    This will build a docker image with a tag name `start-go`. 
    As a result of the build, the example code is compiled for the specified driver version and ready to be executed.
@@ -62,6 +62,7 @@ export MONGODB_URI="mongodb+srv://usr:pwd@new.mongodb.net/dbname?retryWrites=tru
 
 ## Tutorials
 
+* [MongoDB Go driver documentation](https://docs.mongodb.com/drivers/go)
 * [Quickstart Golang and MongoDB: Starting and Setup](https://www.mongodb.com/blog/post/quick-start-golang--mongodb--starting-and-setup)
 
 
