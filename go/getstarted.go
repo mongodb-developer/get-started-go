@@ -138,9 +138,10 @@ func main() {
 	fmt.Println(pipeline)
 	cursor, err := collection.Aggregate(context.Background(), pipeline)
 	defer cursor.Close(context.Background())
-	var results MyAggResult
+	results := []MyAggResult{}
 	if err = cursor.All(context.Background(), &results); err != nil {
 		panic(err)
 	}
+        fmt.Println(results)
 	fmt.Println("Finished.")
 }
