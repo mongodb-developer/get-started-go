@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-ARG DRIVER_VERSION=1.4.2
+ARG DRIVER_VERSION=1.4.3
 ARG MONGODB_URI
 
 RUN apt-get update && apt-get install -y \
@@ -44,6 +44,6 @@ RUN chown -R ubuntu ${HOME} && chmod -R 750 ${HOME}
 
 USER ubuntu
 
-RUN cd ~/go
+WORKDIR ${HOME}/go
 
 CMD ["/bin/bash"]  
