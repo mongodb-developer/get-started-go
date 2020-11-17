@@ -5,11 +5,11 @@
 	"build": {
 		"dockerfile": "../Dockerfile",
 	},
-	"runArgs": ["-e", "MONGODB_URI=mongodb://docker.host.internal:27017" ],
+	"runArgs": ["-e", "MONGODB_URI=mongodb://host.docker.internal:27017" ],
 	"settings": { 
 		"terminal.integrated.shell.linux": "/bin/bash",
 		"go.useGoProxyToCheckForToolUpdates": false,
-		"go.gopath": "/workspaces/get-started-go/",
+		"go.gopath": "/home/ubuntu/",
 		"go.useLanguageServer": true
 	},
 	"extensions": [
