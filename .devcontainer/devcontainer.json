@@ -5,7 +5,7 @@
 	"build": {
 		"dockerfile": "../Dockerfile",
 	},
-	"runArgs": ["-e", "MONGODB_URI=mongodb://host.docker.internal:27017" ],
+	"runArgs": ["--env-file", "./config.env" ],
 	"settings": { 
 		"terminal.integrated.shell.linux": "/bin/bash",
 		"go.useGoProxyToCheckForToolUpdates": false,
