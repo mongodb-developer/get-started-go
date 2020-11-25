@@ -12,11 +12,40 @@ This Get-Started project uses [MongoDB Go driver](https://godoc.org/go.mongodb.o
 
 Have Docker running on your machine. You can download and install from: https://docs.docker.com/install/
 
-### MongoDB Atlas
+### MongoDB
 
-In order to execute the code example, you need to specify `MONGODB_URI` environment variable to connect to a MongoDB cluster. If you don't have any you can create one by signing up [MongoDB Atlas Free-tier M0](https://docs.atlas.mongodb.com/getting-started/). 
+In order to execute the code example, you need to specify `MONGODB_URI` environment variable to connect to a MongoDB cluster. You can *either* use : 
 
-## Build Steps 
+* [MongoDB Atlas](https://www.mongodb.com/cloud/atlas): If you don't have any you can create one by signing up [MongoDB Atlas Free-tier M0](https://docs.atlas.mongodb.com/getting-started/). Once you have an Atlas cluster running, use the [Connection URI](https://docs.atlas.mongodb.com/driver-connection/) string provided as the value of `MONGODB_URI`. 
+* MongoDB hosted locally on your computer. The default connection URI for a standalone MongoDB running on the Docker host is `mongodb://host.docker.internal:27017`. Use this as the value of `MONGODB_URI`.
+
+## Usage 
+
+There are two methods to use this repository: 
+
+* Build using [Visual Studio Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) (Recommended if you are already using VS Code editor)
+* Build directly using Docker
+
+
+### Build using VS Code 
+
+Pre-requisite: Install [Microsoft VS Code Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
+1. Open file `./config.env`: 
+   * Specify `MONGODB_URI` value
+   * Specify `DRIVER_VERSION` value to use a different driver version than the default
+
+2. With VS Code editor open, press `F1` to bring up the `Command Pallete` and type in `Remote-Containers: Open Folder in Container...`
+3. You should see a progress bar while VS Code is building the Docker image
+
+#### Execution Steps
+
+Once the build completed, press `Ctrl + F5` to execute the code
+
+See [VS Code Remote: FAQ](https://code.visualstudio.com/docs/remote/faq) for more information. 
+
+ 
+### Build using Docker 
 
 1. Build Docker image with a tag name. Within this directory execute: 
    * To use the default driver version and specify `MONGODB_URI`:
@@ -37,7 +66,7 @@ In order to execute the code example, you need to specify `MONGODB_URI` environm
 
    The command above will run a `start-go` tagged Docker image. Sets the hostname as `golang`. 
 
-## Execution Steps
+#### Execution Steps
 
 1. Run the compiled Go code example by following below steps:
    * `cd ~/go`
