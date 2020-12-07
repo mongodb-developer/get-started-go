@@ -1,6 +1,6 @@
-module github.com/mongodb-developer/quickstart-go
+module github.com/mongodb-developer/get-started-go
 
-go 1.13
+go 1.15
 
 require (
     go.mongodb.org/mongo-driver vx.x.x
