@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-ARG DRIVER_VERSION=1.4.3
+ARG DRIVER_VERSION=1.4.4
 ARG MONGODB_URI
 
 RUN apt-get update && apt-get install -y \

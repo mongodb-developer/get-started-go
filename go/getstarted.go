@@ -3,12 +3,13 @@ package main
 import (
 	"context"
 	"fmt"
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
 	"os"
 	"time"
+
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 type MyAggResult struct {
@@ -142,6 +143,6 @@ func main() {
 	if err = cursor.All(context.Background(), &results); err != nil {
 		panic(err)
 	}
-        fmt.Println(results)
+	fmt.Println(results)
 	fmt.Println("Finished.")
 }
