@@ -32,14 +32,24 @@ func main() {
 	}
 	defer client.Disconnect(ctx)
 
+	err = client.Ping(context.TODO(), nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Connected to MongoDB")
+
 	database := client.Database("getstarted")
 	collection := database.Collection("golang")
 
 	fmt.Println("Dropping collection 'golang' (command)")
-	result := database.RunCommand(
+	result, err := database.RunCommand(
 		context.Background(),
 		bson.D{{"drop", "golang"}},
-	)
+	).DecodeBytes()
+
+	if err != nil {
+		log.Fatal(err)
+	}
 	fmt.Println(result)
 
 	fmt.Println("Inserting a single document.")
