@@ -34,7 +34,7 @@ RUN wget --quiet https://dl.google.com/go/go1.15.3.linux-amd64.tar.gz \
 ENV DRIVER_VERSION ${DRIVER_VERSION}
 ENV MONGODB_URI ${MONGODB_URI}
 
-RUN mkdir -p ${HOME}/go
+RUN mkdir -p ${HOME}/go && mkdir /workspace
 COPY ./go/getstarted.go ${HOME}/go/getstarted.go
 COPY ./go/go.mod ${HOME}/go/go.mod
 
