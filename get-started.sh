@@ -1,6 +1,5 @@
 #!/bin/bash 
 
-#read -p "DRIVER_VERSION (Leave empty to use default): " DRIVER_VERSION
 MONGODB_URI=${1}
 if [ -z ${MONGODB_URI} ]
 then
@@ -9,9 +8,8 @@ fi
 
 DRIVER_VERSION=${2:-1.4.4}
 echo "Executing ... "
-docker run -v "$(pwd)":/workspace -e MONGODB_URI=${MONGODB_URI} \
+docker run --rm -e MONGODB_URI=${MONGODB_URI} \
+    -v "$(pwd)":/workspace \
     -w /workspace/go start-go \
-    /bin/bash -c \
-    "sed -i s/x.x.x/${DRIVER_VERSION}/g /home/ubuntu/go/go.mod; \
-    cp /home/ubuntu/go/go.mod /workspace/go/go.mod; \
+    "sed -i s/v[x0-9]\.[x0-9].[x0-9]/v${DRIVER_VERSION}/g /workspace/go/go.mod; \
     go run getstarted.go"

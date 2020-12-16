@@ -46,4 +46,4 @@ USER ubuntu
 
 WORKDIR ${HOME}/go
 
-ENTRYPOINT ["/bin/bash"]  
+ENTRYPOINT ["/bin/bash", "-c"]  
