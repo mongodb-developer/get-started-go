@@ -26,8 +26,6 @@ ENV GOROOT "/usr/local/go"
 ENV GOPATH ${WORKSPACE}
 ENV PATH "$PATH:$GOPATH/bin:$GOROOT/bin"
 
-WORKDIR ${WORKSPACE}
-
 RUN wget --quiet https://dl.google.com/go/go1.15.3.linux-amd64.tar.gz \
 && tar -xf go1.15.3.linux-amd64.tar.gz \
 && mv go /usr/local
