@@ -60,7 +60,6 @@ In order to execute the code example, you need to specify `MONGODB_URI` environm
 #### Execution
 
 1. Run the compiled Go code example by following below steps:
-   * `cd ~/go`
    * `go build -v -o getstarted`
    * `./getstarted`
 
@@ -75,7 +74,6 @@ For running the code example in a different driver version from the one built on
    ```
 
 1. Run the compiled Go code example by following below steps:
-   * `cd ~/go`
    * `go build -v -o getstarted`
    * `./getstarted`
 
