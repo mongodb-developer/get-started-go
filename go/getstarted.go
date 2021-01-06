@@ -47,9 +47,6 @@ func main() {
 		bson.D{{"drop", "golang"}},
 	).DecodeBytes()
 
-	if err != nil {
-		log.Fatal(err)
-	}
 	fmt.Println(result)
 
 	fmt.Println("Inserting a single document.")
