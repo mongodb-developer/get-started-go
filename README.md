@@ -52,7 +52,7 @@ In order to execute the code example, you need to specify `MONGODB_URI` environm
 
 2. Run the Docker image by executing:
    ```
-   docker run --tty --interactive --hostname golang start-go
+   docker run --tty --interactive --hostname golang start-go bash
    ```
 
    The command above will run a `start-go` tagged Docker image. Sets the hostname as `golang`. 
