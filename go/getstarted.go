@@ -41,15 +41,14 @@ func main() {
 	database := client.Database("getstarted")
 	collection := database.Collection("golang")
 
-	fmt.Println("Dropping collection 'golang' (command)")
-	result, err := database.RunCommand(
+	fmt.Println("Dropping collection 'golang' (command) :")
+	dropResult, err := database.RunCommand(
 		context.Background(),
 		bson.D{{"drop", "golang"}},
 	).DecodeBytes()
+	fmt.Printf("\t%v\n", dropResult)
 
-	fmt.Println(result)
-
-	fmt.Println("Inserting a single document.")
+	fmt.Println("Inserting a single document :")
 	res1, err := collection.InsertOne(
 		context.Background(),
 		bson.D{
@@ -68,10 +67,10 @@ func main() {
 		log.Fatal(err)
 	}
 	id := res1.InsertedID
-	fmt.Println(id)
+	fmt.Printf("\t%v\n", id)
 
-	fmt.Println("Inserting multiple documents.")
-	_, err = collection.InsertMany(
+	fmt.Println("Inserting multiple documents :")
+	res2, err := collection.InsertMany(
 		context.Background(),
 		[]interface{}{
 			bson.D{
@@ -98,8 +97,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Printf("\t%v\n", res2)
 
-	fmt.Println("Iterating over a collection with Find()")
+	fmt.Println("Iterating over a collection with Find() :")
 	cur, err := collection.Find(context.Background(), bson.D{})
 	if err != nil {
 		log.Fatal(err)
@@ -112,12 +112,13 @@ func main() {
 			fmt.Println("Failed to decode bytes")
 			log.Fatal(err)
 		}
-		fmt.Println(doc)
+		fmt.Printf("\t%v\n", doc)
 	}
 	if err := cur.Err(); err != nil {
 		log.Fatal(err)
 	}
 
+	fmt.Println("Updating a single document :")
 	upResult, err := collection.UpdateOne(
 		context.Background(),
 		bson.M{"item": "journal"},
@@ -126,8 +127,10 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(upResult)
+	fmt.Println("Result:")
+	fmt.Printf("\t%v\n", upResult)
 
+	fmt.Println("Deleting a single document :")
 	delResult, err := collection.DeleteOne(
 		context.Background(),
 		bson.M{"item": "journal"},
@@ -135,7 +138,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(delResult)
+	fmt.Println("Result:")
+	fmt.Printf("\t%v\n", delResult)
 
 	pipeline := mongo.Pipeline{
 		{{"$group", bson.D{
@@ -143,13 +147,15 @@ func main() {
 			{"total", bson.D{{"$sum", "$info.x"}}},
 		}}},
 	}
-	fmt.Println(pipeline)
+	fmt.Println("Executing Aggregation Pipeline :")
+	fmt.Printf("\t%v\n", pipeline)
 	cursor, err := collection.Aggregate(context.Background(), pipeline)
 	defer cursor.Close(context.Background())
 	results := []MyAggResult{}
 	if err = cursor.All(context.Background(), &results); err != nil {
 		panic(err)
 	}
-	fmt.Println(results)
+	fmt.Println("Result:")
+	fmt.Printf("\t%v\n", results)
 	fmt.Println("Finished.")
 }
