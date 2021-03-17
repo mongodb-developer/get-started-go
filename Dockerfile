@@ -1,5 +1,7 @@
 FROM ubuntu:20.04
 
+LABEL org.opencontainers.image.source=https://github.com/mongodb-developer/get-started-go
+
 ARG DRIVER_VERSION=1.4.4
 ARG MONGODB_URI
 
