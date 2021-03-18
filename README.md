@@ -18,80 +18,25 @@ In order to execute the code example, you need to specify `MONGODB_URI` environm
 
 ##  Execution Steps 
 
-1. Build Docker image with a tag name. Within the top level directory execute: 
-   ```
-   docker build . -t start-go
-   ```
-   This will build a docker image with a tag name `start-go`. 
+Execute the helper shell script followed by the MongoDB URI that you would like to connect to. 
 
-2. Execute the helper shell script followed by the MongoDB URI that you would like to connect to. 
-      ```
-      ./get-started.sh "mongodb+srv://usr:pwd@example.mongodb.net/dbname?retryWrites=true"
-      ```
-
-   To use a different driver version, specify the driver version after the MongoDB URI. For example:
-      ```
-      ./get-started.sh "mongodb+srv://usr:pwd@example.mongodb.net/dbname?retryWrites=true" 1.4.3
-      ```
-
-## Alternative Execution Steps (without helper)
-
-#### Build Steps
-
-1. Build Docker image with a tag name. Within this directory execute: 
-   * To use the default driver version and specify `MONGODB_URI`:
-      ```
-      docker build . -t start-go --build-arg MONGODB_URI="mongodb+srv://usr:pwd@example.mongodb.net/dbname?retryWrites=true"
-      ```
-   * To use a different driver version and specify `MONGODB_URI`. For example:
-      ```
-      docker build . -t start-go --build-arg DRIVER_VERSION=1.2.0 --build-arg MONGODB_URI="mongodb+srv://usr:pwd@example.mongodb.net/dbname?retryWrites=true"
-      ```
-   This will build a docker image with a tag name `start-go`. 
-   As a result of the build, the example code is compiled for the specified driver version and ready to be executed.
-
-2. Run the Docker image by executing:
-   ```
-   docker run --tty --interactive --hostname golang start-go bash
-   ```
-
-   The command above will run a `start-go` tagged Docker image. Sets the hostname as `golang`. 
-
-#### Execution
-
-1. Run the compiled Go code example by following below steps:
-   * `go build -v -o getstarted`
-   * `./getstarted`
-
-#### Change driver version from within the Docker environment
-
-For running the code example in a different driver version from the one built on the image:
-
-1. Change the driver version within the project file [go.mod](go/go.mod)
-2. Re-build the sample code:
-   ```
-   go build -v -o getstarted
-   ```
-
-1. Run the compiled Go code example by following below steps:
-   * `go build -v -o getstarted`
-   * `./getstarted`
-
-#### Change driver version from within the Docker environment
-
-For running the code example in a different driver version from the one built on the image:
-
-1. Change the driver version within the project file [go.mod](go/go.mod)
-2. Re-build the sample code:
-   ```
-   go build -v -o getstarted
-   ```
-
-From within the docker environment, you can also change the `MONGODB_URI` by changing the environment variable: 
-
-```sh
-export MONGODB_URI="mongodb+srv://usr:pwd@new.mongodb.net/dbname?retryWrites=true"
 ```
+./get-started.sh "mongodb+srv://usr:pwd@example.mongodb.net/dbname?retryWrites=true"
+```
+
+To use a different driver version, specify the driver version after the MongoDB URI. For example:
+```
+./get-started.sh "mongodb+srv://usr:pwd@example.mongodb.net/dbname?retryWrites=true" 1.4.4
+```
+
+### Execute commands within the Docker environment 
+
+You can invoke a terminal session within the Docker environment using the following command.
+From the top level directory, execute: 
+```
+docker run -it -v "$(pwd):/workspace" -w /workspace/go ghcr.io/mongodb-developer/get-started-go "sh"
+```
+
 
 ## Tutorials
 
