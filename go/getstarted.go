@@ -19,6 +19,7 @@ type MyAggResult struct {
 
 func main() {
 	mongoURI := os.Getenv("MONGODB_URI")
+	fmt.Println("Connecting to MongoDB")
 	client, err := mongo.NewClient(options.Client().ApplyURI(mongoURI))
 	if err != nil {
 		log.Fatal(err)
@@ -36,7 +37,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("Connected to MongoDB")
+	fmt.Println("Connected")
 
 	database := client.Database("getstarted")
 	collection := database.Collection("golang")
